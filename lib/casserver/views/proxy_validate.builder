@@ -7,7 +7,7 @@ if @success
       if @extra_attributes
         xml.tag!("cas:attributes") do
           @extra_attributes.each do |key, value|
-            namespace_aware_key = key[0..3]=='cas:' ? key : 'cas:' + key 
+            namespace_aware_key = key[0..3]=='cas:' ? key : 'cas:' + key.to_s 
             serialize_extra_attribute(xml, namespace_aware_key, value)
           end
         end
